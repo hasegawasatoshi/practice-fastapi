@@ -16,8 +16,8 @@ autopep8 = "*"
 isort = "*"
 
 [scripts]
-format = "bash -c 'autopep8 -ivr --max-line-length 120 ./src && isort ./src'"
-lint = "flake8 --exclude=./.venv/ --show-source ./src"
+format = "bash -c 'autopep8 -ivr --max-line-length 120 . && isort .'"
+lint = "flake8 --max-line-length=120 --exclude=./.venv/ --show-source ."
 start = "bash -c 'export $(cat ../.env | grep -v ^#) && uvicorn app.main:app --reload'"
 
 [requires]
