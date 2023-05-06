@@ -1,6 +1,7 @@
+from pydantic import BaseModel
+
 from .item import Item
 
-from pydantic import BaseModel
 
 class UserBase(BaseModel):
     email: str

@@ -1,10 +1,12 @@
 from typing import Any
-from fastapi import Depends
-from fastapi import APIRouter
-from app import crud, schemas, dependencies
+
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
+from app import crud, dependencies, schemas
+
 router = APIRouter()
+
 
 @router.get("/", response_model=list[schemas.Item])
 def read_items(

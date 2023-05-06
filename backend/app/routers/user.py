@@ -1,11 +1,13 @@
 
 from typing import Any
-from fastapi import Depends, HTTPException
-from fastapi import APIRouter
-from app import crud, schemas, dependencies
+
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
+from app import crud, dependencies, schemas
+
 router = APIRouter()
+
 
 @router.post("/", response_model=schemas.User)
 def create_user(
@@ -37,6 +39,7 @@ def read_user(
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
+
 
 @router.post("/{user_id}/items/", response_model=schemas.Item)
 def create_item_for_user(
